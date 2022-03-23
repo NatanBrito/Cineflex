@@ -1,0 +1,13 @@
+
+
+Header{
+    width:375px;
+    height:65px;
+    background-color: #C3CFD9;
+}
+Header .header{
+    font-weight: 400;
+    font-size: 34px;
+    color: #E8833A;
+    font-family:var(--fonte);
+}
