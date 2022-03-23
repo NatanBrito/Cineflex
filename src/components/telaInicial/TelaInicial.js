@@ -13,7 +13,9 @@ export default function TelaInicial(){
           <div className="img">
               <img src={imageEnola}/>
           </div>
-
+          <div className="img">
+              <img src={imageEnola}/>
+          </div>
 
         </nav>
         </div> 

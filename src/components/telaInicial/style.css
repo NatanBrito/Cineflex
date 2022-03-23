@@ -9,22 +9,26 @@ article{
     font-size: 24px;
     color: #293845;
 }
-nav{
-    width: 340px;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-}
 .telaInicial{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* overflow: scroll; */
+}
+
+nav{
+    width: 340px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 img{
     width: 129px;
     height: 193px;
 }
 .img{
+    margin-bottom: 10px;
     height:193px;
     padding: 8px;
     background: #FFFFFF;
