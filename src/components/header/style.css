@@ -1,13 +1,24 @@
 
-
-Header{
+.root{
+    width: 375px;
+    height: 877px;
+    background-color: #E5E5E5;
+}
+header{
     width:375px;
-    height:65px;
+    height:67px;
     background-color: #C3CFD9;
 }
-Header .header{
+header {
     font-weight: 400;
     font-size: 34px;
     color: #E8833A;
-    font-family:var(--fonte);
+    font-family:'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
