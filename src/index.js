@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import TelaInicial from "./components/telaInicial/TelaInicial";
 import Tela2 from "./components/tela2/Tela2";
 import Tela3 from "./components/tela3/Tela3";
+import Tela4 from "./components/tela4/Tela4";
 function App(){
 return(
   <BrowserRouter>
@@ -13,6 +14,7 @@ return(
        <Route path="/" element={<TelaInicial />} />
        <Route path="/filme/37" element={<Tela2 />} />
        <Route path="/sessao/240" element={<Tela3 />} />
+       <Route path="/sucesso" element={<Tela4 />} />
     </Routes>
   </BrowserRouter>
 
