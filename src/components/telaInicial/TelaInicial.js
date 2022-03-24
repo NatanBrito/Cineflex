@@ -4,7 +4,7 @@ export default function TelaInicial(){
     return(
         <div className="telaInicial">
         <article>
-            <span>Selecione o filme</span>
+            <span className="tituloSelecao">Selecione o filme</span>
         </article>
         <nav>
           <div className="img">
