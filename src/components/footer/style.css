@@ -9,12 +9,12 @@ footer{
     left: 0;
     right: 0;
 }
-img{
+.imgFooter{
 
     width: 48px;
     height: 72px;
 }
-.img{
+.footerImg{
     margin-left: 10px;
     margin-right: 14px;
     padding: 8px;

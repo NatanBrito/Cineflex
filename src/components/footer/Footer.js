@@ -3,8 +3,8 @@ import imageEnola from "../../assets/imgs/imageEnola.jpg"
 export default function Footer(){
  return(
      <footer>
-         <div className="img">
-              <img src={imageEnola} alt="enola"/>
+         <div className="footerImg">
+              <img  className="imgFooter" src={imageEnola} alt="enola"/>
           </div>
           <div className="escritas">
           <p>Enola Holmes</p>
