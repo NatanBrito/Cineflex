@@ -5,11 +5,11 @@ export default function Tela3(){
         ,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
     return(
         <>
-        <div className="tituloSelecao">Selecione o horário</div>
+        <div className="tituloSelecao ">Selecione o horário</div>
         <div className="assentos">
            { testes.map(teste =>{
                 return(
-                    <div className="assento">{teste}</div>
+                    <div className="assento assentoEscolhido">{teste}</div>
                 )
             })}
 
@@ -32,6 +32,7 @@ export default function Tela3(){
         <span className="titulo">CPF do comprador:</span>
         <input type="text" className="input" placeholder="   Digite seu CPF..."></input>
         </div>
+        <button className="botaoReservar">Reservar assento(s)</button>
         <Footer />
         </>
     )
