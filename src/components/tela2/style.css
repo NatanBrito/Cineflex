@@ -34,3 +34,8 @@ span{
     margin: 22px 0px;
     display: flex;
 }
+.secoes{
+    overflow: scroll;
+    height: 680px;
+    width: 375px;
+}
