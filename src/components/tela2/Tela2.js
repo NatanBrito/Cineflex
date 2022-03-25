@@ -1,6 +1,6 @@
 import "./style.css";
 import Footer from "../footer/Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 export default function Tela2(){
@@ -9,7 +9,7 @@ export default function Tela2(){
     const [horarios,setHorarios]=useState([]);
     const [infoFooter,setInfoFooter]=useState([])
     useEffect(()=>{
-        const promise= axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/1/showtimes`)
+        const promise= axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/5/showtimes`)
         promise.then(response=>{
             console.log("entrei tela2")
             const {data}=response;
@@ -29,7 +29,9 @@ export default function Tela2(){
             <div className="botoes">
             { day.showtimes.map(horario=>{
                 return(
+                    <Link to="/sessao/240">
                     <button className="botaoHorario">{horario.name}</button>
+                    </Link>
                 )
 
              })}   

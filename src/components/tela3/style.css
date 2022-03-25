@@ -27,11 +27,12 @@
     height: 26px;
     border-radius: 50%;
     background-color: #C3CFD9;
+    cursor: pointer;
 }
-.assentoEscolhido:hover{
+.disponivel:hover{
     background-color: #5f666d;
     transition: 0.2s;
-    cursor: pointer;
+    
 }
 
 .disposicao{

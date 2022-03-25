@@ -1,15 +1,26 @@
 import "./style.css";
+import { Link , useParams } from "react-router-dom";
+import { useState , useEffect } from "react";
+import axios from "axios";
 import Footer from "../footer/Footer";
 export default function Tela3(){
-    const testes=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
-        ,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+    const [assentos,setAssentos]= useState([])
+    const testes=[1]
+    useEffect(()=>{
+      const promise= axios.get("https://mock-api.driven.com.br/api/v5/cineflex/showtimes/1/seats")
+      promise.then(response =>{
+          const {data}= response
+          console.log(data)
+          setAssentos(data.seats)
+      })
+    },[])
     return(
         <>
         <div className="tituloSelecao ">Selecione o horário</div>
         <div className="assentos">
-           { testes.map(teste =>{
+           { assentos.map((assento, index) =>{
                 return(
-                    <div className="assento assentoEscolhido">{teste}</div>
+                    <div key={assento+index} className={`assento assentoEscolhido ${assento.isAvailable ? "disponivel" : "indisponivel"}`}>{assento.name}</div>
                 )
             })}
 
@@ -30,7 +41,7 @@ export default function Tela3(){
         </div>
         <div className="inputs cpf">
         <span className="titulo">CPF do comprador:</span>
-        <input type="text" className="input" placeholder="   Digite seu CPF..."></input>
+        <input type="number" className="input" placeholder="   Digite seu CPF..."></input>
         </div>
         <button className="botaoReservar">Reservar assento(s)</button>
         <Footer />
