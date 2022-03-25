@@ -10,10 +10,16 @@
     color: #293845;
 }
 .telaInicial{
+    height: 877px;
+    width: 375px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* overflow: scroll; */
+    overflow: scroll;
+}
+::-webkit-scrollbar{
+    height: 0px;
+    width: 0px;
 }
 
 nav{
