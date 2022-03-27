@@ -4,16 +4,20 @@ import { useState , useEffect } from "react";
 import axios from "axios";
 import Footer from "../footer/Footer";
 export default function Tela3(){
+    const {idSessao}=useParams();
     const [assentos,setAssentos]= useState([])
-    const testes=[1]
+    const [infoFooter,setInfoFooter]=useState([])
+    const link=`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`
     useEffect(()=>{
-      const promise= axios.get("https://mock-api.driven.com.br/api/v5/cineflex/showtimes/1/seats")
+        console.log(idSessao)
+      const promise= axios.get(link)
       promise.then(response =>{
           const {data}= response
-          console.log(data)
           setAssentos(data.seats)
+          setInfoFooter(data)
       })
     },[])
+    console.log(infoFooter)
     return(
         <>
         <div className="tituloSelecao ">Selecione o horário</div>
@@ -35,16 +39,20 @@ export default function Tela3(){
         <span className="estadoAssento">Disponivel</span>
         <span className="estadoAssento">Indisponivel</span>
         </div>
+        <form>
         <div className="inputs">
         <span className="titulo">Nome do comprador:</span>
-        <input type="text" className="input" placeholder="   Digite seu nome..."></input>
+        <input type="text" className="input" placeholder="   Digite seu nome..." required></input>
         </div>
         <div className="inputs cpf">
         <span className="titulo">CPF do comprador:</span>
-        <input type="number" className="input" placeholder="   Digite seu CPF..."></input>
+        <input type="number" className="input" placeholder="   Digite seu CPF..." required></input>
         </div>
-        <button className="botaoReservar">Reservar assento(s)</button>
-        <Footer />
+        <Link to="/sucesso">
+        <button type="submit" className="botaoReservar">Reservar assento(s)</button>
+        </Link>
+        </form>
+        <Footer secaoEscolhida="1555"  />
         </>
     )
 

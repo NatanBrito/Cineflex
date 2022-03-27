@@ -19,9 +19,9 @@ export default function TelaInicial(){
         <nav>
          {filmes.map((filme,index)=>{
              return(
-              <div key={index} className="img">
-              <Link to="/filme/37">
-              <img src={filme.posterURL} alt="enola"/>
+              <div key={index+filme+index} className="img">
+              <Link to={"/filme/"+filme.id}>
+              <img key={index}src={filme.posterURL} alt="enola"/>
               </Link>
           </div>
              )

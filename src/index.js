@@ -13,7 +13,7 @@ return(
     <Routes>
        <Route path="/" element={<TelaInicial />} />
        <Route path="/filme/:idFilme" element={<Tela2 />} />
-       <Route path="/sessao/240" element={<Tela3 />} />
+       <Route path="/sessao/:idSessao" element={<Tela3 />} />
        <Route path="/sucesso" element={<Tela4 />} />
     </Routes>
   </BrowserRouter>
