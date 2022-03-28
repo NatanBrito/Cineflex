@@ -25,7 +25,6 @@
 nav{
     width: 340px;
     height: 100%;
-    background-color: violet;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
