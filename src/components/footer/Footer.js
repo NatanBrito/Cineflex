@@ -1,6 +1,5 @@
 import "./style.css";
 export default function Footer({url,nomeFilme,secaoEscolhida,horarioEscolhido}){
-    console.log(secaoEscolhida)
  return(
      <footer>
          <div className="footerImg">

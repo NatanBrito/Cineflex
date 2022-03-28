@@ -1,8 +1,6 @@
 import "./style.css";
 export default function Footer2(props){
     const {obj} = props
-    console.log(obj)
-
     if(obj.length === 0) {
     return(
         <footer>

@@ -4,7 +4,6 @@ export default function Tela4(){
   const navigate=useNavigate();
 const  {state}= useLocation();
 const {titulo,dia,horario,assentos,nome,cpf}=state
-console.log (titulo)
     return (
       <>
         <TituloSucesso>Pedido feito
