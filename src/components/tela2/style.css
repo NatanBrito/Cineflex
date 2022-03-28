@@ -10,7 +10,7 @@
     color: #293845;
 }
 .secao{
-margin: 0px auto;
+    margin-left: 25px;
 }
 span{
     font-size: 20px;
@@ -45,7 +45,7 @@ button{
 
 }
 .secoes{
-
+   
     margin: 0px auto;
     overflow: scroll;
     height: 680px;
