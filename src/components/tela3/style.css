@@ -68,6 +68,7 @@
 .indisponivel{
     background-color: #FBE192;
     border: 1px #F7C52B;
+    cursor:not-allowed;
 }
 .inputs{
     display: flex;

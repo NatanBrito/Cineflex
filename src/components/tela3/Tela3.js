@@ -18,15 +18,12 @@ export default function Tela3(){
         const promise= axios.get(link)
         promise.then(response =>{
             const {data}= response
-            // console.log(data.movie.title)
           setAssentos(data.seats)
           setInfo(data)
-        //   console.log(info)
       })
     },[])
     function infoApi(e){
         e.preventDefault();
-        // console.log(assentoApi.length)
         const objApi={
             ids: assentoApi,
             name: valorNome,
@@ -41,7 +38,7 @@ export default function Tela3(){
         cpf:valorCpf
         }
         console.log(TelaSucesso)
-        if(assentoApi.length>=1 && valorCpf.length>9 && valorNome.length>2){
+        if(assentoApi.length>=1 && valorCpf.length>9 && valorCpf.length<19 && valorNome.length>2){
 
             const promise=axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",objApi)
             promise.then(navigate("/sucesso",{state: TelaSucesso}))
@@ -49,7 +46,7 @@ export default function Tela3(){
         if(assentoApi.length<1){
         alert("selecione algum assento")
         }
-        if(valorCpf.length<9){
+        if(valorCpf.length<9 || valorCpf.length>19){
             alert('preencha corretamente seu cpf...')
         }
         if(valorNome.length<2){

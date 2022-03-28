@@ -12,6 +12,9 @@
 .secao{
     margin-left: 25px;
 }
+.secao:nth-last-child(1){
+    margin-bottom: 130px;
+}
 span{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
