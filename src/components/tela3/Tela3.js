@@ -3,7 +3,7 @@ import { Link , useParams, useNavigate,useLocation} from "react-router-dom";
 import { useState , useEffect } from "react";
 import axios from "axios";
 
-import Footer from "../footer/Footer";
+import Footer2 from "../Footer2/Footer2";
 export default function Tela3(){
     const [guardaAssento,setGuardaAssento]=useState([]);
     const [assentoApi,setAssentoApi]=useState([]);
@@ -98,7 +98,7 @@ export default function Tela3(){
         </div>
         <button type="submit" className="botaoReservar">Reservar assento(s)</button>
         </form>
-        <Footer secaoEscolhida=''  />
+        <Footer2 obj={info} />
         </>
     )
 
