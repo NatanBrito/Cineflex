@@ -1,11 +1,10 @@
 
 .root{
-    width: 375px;
-    height: 877px;
-    background-color: #E5E5E5;
+    width: 400px;
+    height: 100%;
 }
 header{
-    width:375px;
+    width:100%;
     height:67px;
     background-color: #C3CFD9;
 }

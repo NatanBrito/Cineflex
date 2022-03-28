@@ -10,12 +10,18 @@
     color: #293845;
 }
 .secao{
-    margin-left: 24px;
+margin: 0px auto;
 }
 span{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
 
+}
+a{
+    text-decoration:none;
+}
+link{
+    text-decoration: none;
 }
 .botaoHorario{
     margin-right: 8px;
@@ -30,11 +36,17 @@ span{
     border-radius: 3px;
     border: 0px;
 }
+button{
+    text-decoration:none;
+}
 .botoes{
-    margin: 22px 0px;
+    margin: 22px auto;
     display: flex;
+
 }
 .secoes{
+
+    margin: 0px auto;
     overflow: scroll;
     height: 680px;
     width: 375px;

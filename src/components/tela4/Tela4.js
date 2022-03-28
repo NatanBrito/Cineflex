@@ -9,6 +9,7 @@ console.log (titulo)
       <>
         <TituloSucesso>Pedido feito
         com sucesso!</TituloSucesso>
+        <TesteAlinhamento>
         <Container>
           <h1>Filme e sessão</h1>
           <p>{titulo}</p>
@@ -27,6 +28,7 @@ console.log (titulo)
           <p>Nome: {nome}</p>
           <p>CPF: {cpf}</p>
         </Container>
+        </TesteAlinhamento>
         <Botao onClick={()=> navigate('/')}> voltar pra home</Botao>
       </>
     )
@@ -45,7 +47,8 @@ const Botao= styled.button`
     border: 0px;
 
 `
-
+const TesteAlinhamento= styled.div`
+`
 
 const Container= styled.div`
 margin-left:24px;
