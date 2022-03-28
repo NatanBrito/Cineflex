@@ -1,16 +1,15 @@
 import "./style.css";
-import { Link , useParams, useNavigate } from "react-router-dom";
+import { Link , useParams, useNavigate} from "react-router-dom";
 import { useState , useEffect } from "react";
 import axios from "axios";
 
 import Footer from "../footer/Footer";
 export default function Tela3(){
-    const navigate= useNavigate();
     const [guardaAssento,setGuardaAssento]=useState([]);
     const [assentoApi,setAssentoApi]=useState([]);
     const [valorNome,setValorNome]=useState('');
     const [valorCpf,setValorCpf]=useState('');
-
+    const navigate=useNavigate();
     const {idSessao}=useParams();
     const [assentos,setAssentos]= useState([])
     const [infoFooter,setInfoFooter]=useState([])
@@ -19,14 +18,33 @@ export default function Tela3(){
         const promise= axios.get(link)
         promise.then(response =>{
             const {data}= response
-            console.log(data.movie.title)
+            // console.log(data.movie.title)
           setAssentos(data.seats)
           setInfoFooter(data)
       })
     },[])
-    // console.log(infoFooter)
-    // console.log(assentoApi)
-
+    function infoApi(e){
+        e.preventDefault();
+        console.log(assentoApi.length)
+        if(assentoApi.length>=1 && valorCpf.length>9 && valorNome.length>2){
+            const promise=axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",{
+                ids: assentoApi,
+                name: valorNome,
+                cpf: valorCpf
+            })
+            promise.then(navigate("/sucesso"))
+        } 
+        if(assentoApi.length<1){
+        alert("selecione algum assento")
+        }
+        if(valorCpf.length<9){
+            alert('preencha corretamente seu cpf...')
+        }
+        if(valorNome.length<2){
+            alert ('escreva o seu nome...')
+        }
+       
+    }
     return(
         <>
         <div className="tituloSelecao ">Selecione o horário</div>
@@ -53,7 +71,7 @@ export default function Tela3(){
         <span className="estadoAssento">Disponivel</span>
         <span className="estadoAssento">Indisponivel</span>
         </div>
-        <form>
+        <form onSubmit={infoApi}>
         <div className="inputs">
         <span className="titulo">Nome do comprador:</span>
         <input type="text" className="input" value={valorNome}
@@ -65,9 +83,7 @@ export default function Tela3(){
          onChange={(e=>{ setValorCpf(e.target.value)})} 
          placeholder="   Digite seu CPF sem separaçoes   EX:14474525978" required></input>
         </div>
-        <Link to="/sucesso">
-        <button type="submit" onClick={()=>{Api(assentoApi,valorCpf,valorNome)}} className="botaoReservar">Reservar assento(s)</button>
-        </Link>
+        <button type="submit" className="botaoReservar">Reservar assento(s)</button>
         </form>
         <Footer secaoEscolhida=""  />
         </>
@@ -94,27 +110,4 @@ function EscolhendoAssento({disponibilidade,assento,callbackAssento,callbackAsse
                 {assento.name}</div>
         )
        }
-}
-function Api(api,cpf,nome){
-    
- const objApi={
-	ids: api,
-	name: nome,
-	cpf: cpf
-}
-if(cpf.length >9 && nome.length>2 && api.length>1){
-const promise=axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",objApi)
-promise.then(response=>{ console.log ("deu bom"+response)})
-promise.catch(response =>{ console.log("deu ruim .."+response)})
-} else{
-    if(api<1){
-        alert("selecione algum assento")
-    }
-    if(nome<1){
-        alert("informe seu nome")
-    }
-    if(cpf<10){
-        alert("digite seu cpf corretamente")
-    }
-}
 }
