@@ -147,7 +147,7 @@ function EscolhendoAssento({
     );
   } else {
     return (
-      <div key={assento} className={`assento  indisponivel`}>
+      <div key={assento} onClick={()=>{alert("Assento não disponivel")}} className={`assento  indisponivel`}>
         {assento.name}
       </div>
     );
