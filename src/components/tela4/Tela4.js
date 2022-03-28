@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 export default function Tela4(){
-  const navigate=useNavigate;
+  const navigate=useNavigate();
     return (
       <>
         <TituloSucesso>Pedido feito
@@ -21,7 +21,7 @@ export default function Tela4(){
           <p>Nome: João da Silva Sauro</p>
           <p>CPF: 123.456.789-10</p>
         </Container>
-        <Botao > voltar pra home</Botao>
+        <Botao onClick={()=> navigate('/')}> voltar pra home</Botao>
       </>
     )
 }

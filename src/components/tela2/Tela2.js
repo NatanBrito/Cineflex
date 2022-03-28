@@ -25,13 +25,13 @@ export default function Tela2(){
      <div className="secoes">
       {horarios.map((day,indice)=>{
           return(
-            <div key={indice+day} className="secao">
+            <div key={indice} className="secao">
             <span>{day.weekday} - {day.date}</span>
             <div className="botoes">
             { day.showtimes.map((horario,index)=>{
                 return(
-                    <Link to={"/sessao/"+horario.id}>
-                    <button key={horario+index} className="botaoHorario">{horario.name}</button>
+                    <Link key={index} to={"/sessao/"+horario.id}>
+                    <button key={horario} className="botaoHorario">{horario.name}</button>
                     </Link>
                 )
 

@@ -1,9 +1,11 @@
 import "./style.css";
-import { Link , useParams } from "react-router-dom";
+import { Link , useParams, useNavigate } from "react-router-dom";
 import { useState , useEffect } from "react";
 import axios from "axios";
+
 import Footer from "../footer/Footer";
 export default function Tela3(){
+    const navigate= useNavigate();
     const [guardaAssento,setGuardaAssento]=useState([]);
     const [assentoApi,setAssentoApi]=useState([]);
     const [valorNome,setValorNome]=useState('');
@@ -61,7 +63,7 @@ export default function Tela3(){
         <span className="titulo">CPF do comprador:</span>
         <input type="number" className="input" value={valorCpf}
          onChange={(e=>{ setValorCpf(e.target.value)})} 
-         placeholder="   Digite seu CPF..." required></input>
+         placeholder="   Digite seu CPF sem separaçoes   EX:14474525978" required></input>
         </div>
         <Link to="/sucesso">
         <button type="submit" onClick={()=>{Api(assentoApi,valorCpf,valorNome)}} className="botaoReservar">Reservar assento(s)</button>
