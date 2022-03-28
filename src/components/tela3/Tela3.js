@@ -56,7 +56,7 @@ export default function Tela3(){
     }
     return(
         <>
-        <div className="tituloSelecao ">Selecione o horário</div>
+        <div className="tituloSelecao ">Selecione o(s) assento(s)</div>
         <div className="assentos">
            { assentos.map((assento, index) =>{               
                return(

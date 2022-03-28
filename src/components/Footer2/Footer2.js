@@ -22,7 +22,7 @@ export default function Footer2(props){
                  </div>
                  <div className="escritas">
                  <p>{obj.movie.title}</p>
-                 <p>{obj.name}</p>
+                 <p>{obj.day.weekday}-{obj.name}</p>
                  </div>
             </footer>
         )
