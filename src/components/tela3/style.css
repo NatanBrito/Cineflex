@@ -1,3 +1,4 @@
+
 .tituloSelecao{
     width: 100%;
     height: 80px;
@@ -15,6 +16,7 @@
     height: 230px;
     display: flex;
     flex-wrap: wrap;
+    
 }
 .assento{
     margin-left: 2px;
