@@ -1,5 +1,5 @@
 import "./style.css";
-import { Link , useParams, useNavigate} from "react-router-dom";
+import { Link , useParams, useNavigate,useLocation} from "react-router-dom";
 import { useState , useEffect } from "react";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ export default function Tela3(){
     const navigate=useNavigate();
     const {idSessao}=useParams();
     const [assentos,setAssentos]= useState([])
-    const [infoFooter,setInfoFooter]=useState([])
+    const [info,setInfo]=useState([])
     const link=`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`
     useEffect(()=>{
         const promise= axios.get(link)
@@ -20,19 +20,31 @@ export default function Tela3(){
             const {data}= response
             // console.log(data.movie.title)
           setAssentos(data.seats)
-          setInfoFooter(data)
+          setInfo(data)
+        //   console.log(info)
       })
     },[])
     function infoApi(e){
         e.preventDefault();
-        console.log(assentoApi.length)
+        // console.log(assentoApi.length)
+        const objApi={
+            ids: assentoApi,
+            name: valorNome,
+            cpf: valorCpf
+        }
+        const TelaSucesso={
+        titulo:info.movie.title,
+        dia:info.day.date,
+        horario:info.name,
+        assentos:guardaAssento,
+        nome:valorNome,
+        cpf:valorCpf
+        }
+        console.log(TelaSucesso)
         if(assentoApi.length>=1 && valorCpf.length>9 && valorNome.length>2){
-            const promise=axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",{
-                ids: assentoApi,
-                name: valorNome,
-                cpf: valorCpf
-            })
-            promise.then(navigate("/sucesso"))
+
+            const promise=axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",objApi)
+            promise.then(navigate("/sucesso",{state: TelaSucesso}))
         } 
         if(assentoApi.length<1){
         alert("selecione algum assento")
@@ -49,7 +61,8 @@ export default function Tela3(){
         <>
         <div className="tituloSelecao ">Selecione o horário</div>
         <div className="assentos">
-           { assentos.map((assento, index) =>{               return(
+           { assentos.map((assento, index) =>{               
+               return(
                <EscolhendoAssento  key={index}
                  disponibilidade={assento.isAvailable}
                  assento={assento}
@@ -85,7 +98,7 @@ export default function Tela3(){
         </div>
         <button type="submit" className="botaoReservar">Reservar assento(s)</button>
         </form>
-        <Footer secaoEscolhida=""  />
+        <Footer secaoEscolhida=''  />
         </>
     )
 

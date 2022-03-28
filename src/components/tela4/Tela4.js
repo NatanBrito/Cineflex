@@ -1,25 +1,31 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 export default function Tela4(){
   const navigate=useNavigate();
+const  {state}= useLocation();
+const {titulo,dia,horario,assentos,nome,cpf}=state
+console.log (titulo)
     return (
       <>
         <TituloSucesso>Pedido feito
         com sucesso!</TituloSucesso>
         <Container>
           <h1>Filme e sessão</h1>
-          <p>Enola Holmes</p>
-          <p>24/06/2021 15:00</p>
+          <p>{titulo}</p>
+          <p>{dia} {horario}</p>
         </Container>
         <Container>
           <h1>Ingressos</h1>
-          <p>Assento 15</p>
-          <p>Assento 16</p>
+          {assentos.map(assento=>{
+            return(
+            <p key={assento}>Assento {assento}</p>
+          )})}
+          
         </Container>
         <Container>
           <h1>Comprador</h1>
-          <p>Nome: João da Silva Sauro</p>
-          <p>CPF: 123.456.789-10</p>
+          <p>Nome: {nome}</p>
+          <p>CPF: {cpf}</p>
         </Container>
         <Botao onClick={()=> navigate('/')}> voltar pra home</Botao>
       </>
