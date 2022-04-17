@@ -6,6 +6,7 @@ projeto consumindo Api para reservar assentos de cinema,feito com design respons
  <li>HTML</li>
  <li>CSS</li>
  <li>React.js</li>
+ <li>APIs</li>
  </ul>
 
 ## link do deploy
